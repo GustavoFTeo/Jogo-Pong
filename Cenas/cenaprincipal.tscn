@@ -1,0 +1,105 @@
+[gd_scene load_steps=11 format=3 uid="uid://bhfne74j1nifp"]
+
+[ext_resource type="Script" uid="uid://2fd42tm27sxs" path="res://Scripts/Jogador1.gd" id="1_3dewy"]
+[ext_resource type="Script" uid="uid://0wq11qi8w71r" path="res://Scripts/Jogador2.gd" id="2_dthc1"]
+[ext_resource type="Script" uid="uid://ds3dhw6endsdy" path="res://Scripts/Bolinha.gd" id="3_6groc"]
+[ext_resource type="Texture2D" uid="uid://crijolv6vgvnl" path="res://Imagens/Bolinha.png" id="4_4m7ud"]
+[ext_resource type="Theme" uid="uid://b50422knlibqa" path="res://Texto/FontePlacar.tres" id="5_xhaix"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e6itc"]
+size = Vector2(29, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vbepu"]
+size = Vector2(1168, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r18kt"]
+size = Vector2(1168, 61)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xxd4a"]
+radius = 24.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mdcfc"]
+size = Vector2(36, 640)
+
+[node name="Cenaprincipal" type="Node2D"]
+
+[node name="Jogador1" type="CharacterBody2D" parent="."]
+motion_mode = 1
+script = ExtResource("1_3dewy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jogador1"]
+position = Vector2(103.5, 320)
+shape = SubResource("RectangleShape2D_e6itc")
+
+[node name="ColorRect" type="ColorRect" parent="Jogador1"]
+offset_left = 88.0
+offset_top = 256.0
+offset_right = 120.0
+offset_bottom = 384.0
+
+[node name="Jogador2" type="CharacterBody2D" parent="."]
+motion_mode = 1
+script = ExtResource("2_dthc1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jogador2"]
+position = Vector2(1047.5, 320)
+shape = SubResource("RectangleShape2D_e6itc")
+
+[node name="ColorRect" type="ColorRect" parent="Jogador2"]
+offset_left = 1032.0
+offset_top = 256.0
+offset_right = 1064.0
+offset_bottom = 384.0
+
+[node name="Parede" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Parede"]
+position = Vector2(576, -20)
+shape = SubResource("RectangleShape2D_vbepu")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Parede"]
+position = Vector2(576, 670.5)
+shape = SubResource("RectangleShape2D_r18kt")
+
+[node name="Bolinha" type="CharacterBody2D" parent="."]
+motion_mode = 1
+script = ExtResource("3_6groc")
+
+[node name="TextureRect" type="TextureRect" parent="Bolinha"]
+offset_left = 552.0
+offset_top = 296.0
+offset_right = 952.0
+offset_bottom = 696.0
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("4_4m7ud")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bolinha"]
+position = Vector2(576, 320)
+shape = SubResource("CircleShape2D_xxd4a")
+
+[node name="Goljogador1" type="StaticBody2D" parent="."]
+position = Vector2(0, 288)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goljogador1"]
+position = Vector2(-12, 32)
+shape = SubResource("RectangleShape2D_mdcfc")
+
+[node name="Goljogador2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Goljogador2"]
+position = Vector2(1162, 328)
+shape = SubResource("RectangleShape2D_mdcfc")
+
+[node name="Placarjogador1" type="RichTextLabel" parent="."]
+offset_left = 256.0
+offset_top = 32.0
+offset_right = 384.0
+offset_bottom = 192.0
+theme = ExtResource("5_xhaix")
+
+[node name="Placarjogador2" type="RichTextLabel" parent="."]
+offset_left = 768.0
+offset_top = 32.0
+offset_right = 896.0
+offset_bottom = 192.0
+theme = ExtResource("5_xhaix")

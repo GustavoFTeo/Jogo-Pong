@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhfne74j1nifp"]
+
+[ext_resource type="Script" path="res://Scripts/ScriptJogador1.gd" id="1_3dewy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e6itc"]
+size = Vector2(29, 128)
+
+[node name="Cenaprincipal" type="Node2D"]
+
+[node name="Jogador1" type="CharacterBody2D" parent="."]
+script = ExtResource("1_3dewy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jogador1"]
+position = Vector2(103.5, 320)
+shape = SubResource("RectangleShape2D_e6itc")
+
+[node name="ColorRect" type="ColorRect" parent="Jogador1"]
+offset_left = 88.0
+offset_top = 256.0
+offset_right = 120.0
+offset_bottom = 384.0
